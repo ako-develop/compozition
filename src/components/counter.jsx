@@ -1,4 +1,4 @@
-import React, {useState} from "react"
+import React, {useState} from "react";
 const Counter = () => {
     // let count = 0;
     const [count, setCounter] = useState(0);
@@ -39,7 +39,7 @@ const Counter = () => {
 //    return <ul>{renderTags()}</ul>
 // }
     return (
-        <>
+        <div>
             <span className={getBageClasses()}>{formatCount()}</span>
             <button className="btn btn-primary btn-sm m-2" 
             onClick={handleIncrement}
@@ -51,7 +51,7 @@ const Counter = () => {
             >
                 -
             </button>
-        </>
+        </div>
     );
 };
 
