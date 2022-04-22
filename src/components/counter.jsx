@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 const Counter = (props) => {
-    console.log(props);
+   
     // let value = 0;
     const [value, setValue] = useState(props.value);
     // const [tags, setTags]=useState(['tag1', 'tag2', 'tag3'])
@@ -41,6 +41,7 @@ const Counter = (props) => {
 // }
     return (
         <div>
+           <span>{props.name}</span>
             <span className={getBageClasses()}>{formatValue()}</span>
             <button className="btn btn-primary btn-sm m-2" 
             onClick={handleIncrement}
