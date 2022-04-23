@@ -1,8 +1,8 @@
 import React, {useState} from "react";
 const Counter = (props) => {
-   
+   const {value} = props
     // let value = 0;
-    const [value, setValue] = useState(props.value);
+    // const [value, setValue] = useState(props.value);
     // const [tags, setTags]=useState(['tag1', 'tag2', 'tag3'])
 
     const formatValue = () => {
@@ -14,10 +14,10 @@ const Counter = (props) => {
     return classes
     }
     const handleIncrement=()=>{
-        setValue((prevState)=>prevState+1);
+        // setValue((prevState)=>prevState+1);
     };
     const handleDecrement=()=>{
-        setValue((prevState)=>prevState-1);
+        // setValue((prevState)=>prevState-1);
     };
     // const handleTagChange=(id)=>{
     //     setTags((prevState)=>prevState.filter((tag)=>tag!==id));
