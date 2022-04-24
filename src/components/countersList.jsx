@@ -12,25 +12,26 @@ const CounterList = () => {
   ]
   const [counters, setCounters] = useState(initialState)
 
-  const handleIncrement = (id) => {
-    setCounters((counters) =>
-      counters.filter((counter) => {
-        return counter.id === id ? (counter.value += 1) : counter
-      })
-    )
-  }
 
-  const handleDecrement = (id) => {
-    setCounters((counters) =>
-      counters.filter((counter) => {
-        if (counter.id === id && counter.value > 0) {
-          counter.value -= 1
-          return counter
-        }
-        return counter
-      })
-    )
-  }
+  // const handleIncrement = (id) => {
+  //   setCounters((counters) =>
+  //     counters.filter((counter) => {
+  //       return counter.id === id ? (counter.value += 1) : counter
+  //     })
+  //   )
+  // }
+
+  // const handleDecrement = (id) => {
+  //   setCounters((counters) =>
+  //     counters.filter((counter) => {
+  //       if (counter.id === id && counter.value > 0) {
+  //         counter.value -= 1
+  //         return counter
+  //       }
+  //       return counter
+  //     })
+  //   )
+  // }
 
   const handleDelete = (id) => {
     setCounters((counters) => counters.filter((counter) => counter.id !== id))
@@ -39,6 +40,18 @@ const CounterList = () => {
   const handleReset = () => {
     setCounters((prevState) => (prevState = initialState))
   }
+  const handleIncrement=(id)=>{
+      const elementIndex=counters.findIndex(c=>c.id===id)
+      const newCounters=[...counters]
+      newCounters[elementIndex].value++;
+      setCounters(newCounters)
+  }
+  const handleDecrement=(id)=>{
+      const elementIndex=counters.findIndex(c=>c.id===id)
+      const newCounters=[...counters]
+      newCounters[elementIndex].value--;
+      setCounters(newCounters)
+  }
 
   return (
     <>
@@ -46,7 +59,7 @@ const CounterList = () => {
         return (
           <Counter
             key={count.id}
-            {...count}
+                {...count}
             onDelete={handleDelete}
             onIncrement={handleIncrement}
             onDecrement={handleDecrement}
@@ -54,7 +67,7 @@ const CounterList = () => {
         )
       })}
       <button
-        className="btn btn-secondary btn-sm m-2"
+        className="btn btn-primary btn-sm m-2"
         onClick={handleReset}
         children={child('Сброс')}
       />

@@ -13,6 +13,12 @@ const Counter = (props) => {
     classes += value <= 0 ? 'bg-warning' : 'bg-primary'
     return classes
   }
+  const handleIncrement = () => {
+    props.onIncrement(props.id);
+  }
+  const handleDecrement = () => {
+    props.onDecrement(props.id);
+  }
 
   return (
     <>
@@ -27,6 +33,7 @@ const Counter = (props) => {
         <button
           className="btn btn-primary btn-sm m-2"
           onClick={props.onDecrement.bind(null, id)}
+          
           children={child('-')}
         />
         <button
